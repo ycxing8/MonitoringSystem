@@ -17,7 +17,7 @@ public class User {
 
     private String password;
 
-    private String Power;
+    private String power;
 
     public User(){}
 
@@ -46,10 +46,10 @@ public class User {
     }
 
     public String getPower() {
-        return Power;
+        return power;
     }
 
     public void setPower(String power) {
-        Power = power;
+        this.power = power;
     }
 }

@@ -77,7 +77,7 @@ public class UserController {
         return "Ok";
     }
 
-    @PostMapping(value = "/user/change_password")
+    @PostMapping(value = "/user/change_power")
     public String modifyPower(@RequestParam("user_name")String userName,
                               @RequestParam("user_power")String userPower){
         List<User> userList = userRepository.findByUserName(userName);
