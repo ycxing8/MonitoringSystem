@@ -27,7 +27,7 @@ public class MainController {
 
     @PostMapping(value = "/insert")
     public List<Student> insertInto(@RequestParam("name")String name,@RequestParam("age") String age){
-        System.out.println("进入插入数据方法！");
+        //System.out.println("进入插入数据方法！");
         Student student = new Student();
         student.setName(name);
         student.setAge(age);
