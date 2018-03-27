@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 @Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter{
-    public final static String SESSION_KEY = "userName";
+    //public final static String SESSION_KEY = "userName";
 
     @Bean
     public SecurityInterceptor getSecurityInterceptor(){
