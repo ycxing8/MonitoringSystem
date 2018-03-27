@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.bob</groupId>
-	<artifactId>test_my_sql</artifactId>
+	<groupId>com.seu</groupId>
+	<artifactId>MonitoringSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>test_my_sql</name>
-	<description>Demo project for Spring Boot</description>
+	<name>MonitoringSystem</name>
+	<description>Monitoring System for Machine of Sewage Treatment  by Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
