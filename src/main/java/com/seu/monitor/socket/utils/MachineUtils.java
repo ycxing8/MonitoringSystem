@@ -33,4 +33,5 @@ public class MachineUtils {
             return machineList.get(0);//取最上面的一个，且相同identity code 相同的machine应只有一个
         }
     }
+
 }

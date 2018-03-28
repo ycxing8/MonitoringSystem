@@ -1,19 +1,18 @@
 package com.seu.monitor.entity;
 
-import com.seu.monitor.entity.composite.ComponentLogCompositeKey;
-
 import javax.persistence.*;
 
 @Entity
-@IdClass(ComponentLogCompositeKey.class)
 @Table(name = "component_log")
 public class ComponentLog {
 	
 	//部件记录信息，数据量大，部件包括：传感器、阀门、电机、累计量
+
+    @Id
     @GeneratedValue
     private Integer id;
-    @Id private String machineIdentifier;
-    @Id private String componentIdentifier;
+    private String machineIdentifier;
+    private String componentIdentifier;
     private String time;
     private String data;
     private String unit;//num:6
