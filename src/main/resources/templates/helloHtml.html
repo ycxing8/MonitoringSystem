@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+</head>
+
+<body>
+<h1 th:inline="text">Hello.v.2</h1>
+<p th:text="${hello}"></p>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <a id="modal-622377" href="#modal-container-622377" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+
+            <div id="modal-container-622377" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">
+                        标题栏
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        显示信息
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
+                </div>
+            </div><img alt="140x140" src="1.png" class="img-rounded" />
+        </div>
+    </div>
+</div>
+</body>
+</html>

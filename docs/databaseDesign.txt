@@ -1,0 +1,17 @@
+Auther：ycxing
+Time：2018/3/27
+
+user table
+id name password power machine_identifiers
+
+machine table
+id identifier name place description image_path identity_code status
+
+component table(Tiring measurement also in this table)
+id machine_identifier component_identifier kind name description status real_time_data unit //9
+
+component_log table(Tiring measurement also in this table)
+id machine_identifier component_identifier time data unit//num:6
+
+operation table
+id user_name time description
