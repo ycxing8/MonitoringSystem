@@ -11,7 +11,7 @@ component table(Tiring measurement also in this table)
 id machine_identifier component_identifier kind name description status real_time_data unit //9
 
 component_log table(Tiring measurement also in this table)
-id machine_identifier component_identifier time data unit//num:6
+id machine_identifier component_identifier time status data unit//num:7
 
 operation table
 id user_name time description

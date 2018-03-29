@@ -1,9 +1,9 @@
-package com.seu.monitor.socket.utils;
+package com.seu.monitor.utils;
 
 import com.seu.monitor.entity.ComponentLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.seu.monitor.reposirity.ComponentLogRepository;
+import com.seu.monitor.repository.ComponentLogRepository;
 
 import javax.annotation.PostConstruct;
 

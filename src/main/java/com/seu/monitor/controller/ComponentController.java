@@ -2,7 +2,7 @@ package com.seu.monitor.controller;
 
 import com.seu.monitor.config.UserConfig;
 import com.seu.monitor.entity.Component;
-import com.seu.monitor.reposirity.ComponentRepository;
+import com.seu.monitor.repository.ComponentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

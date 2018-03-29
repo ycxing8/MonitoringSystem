@@ -2,27 +2,21 @@ package com.seu.monitor.socket;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.lang.Thread;
 
 import com.seu.monitor.entity.ComponentLog;
 import com.seu.monitor.entity.Machine;
-import com.seu.monitor.socket.utils.MachineUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.util.List;
+import com.seu.monitor.utils.MachineUtils;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-import static com.seu.monitor.socket.utils.ComponentLogUtils.addComponentLog;
+import static com.seu.monitor.utils.ComponentLogUtils.addComponentLog;
+import static com.seu.monitor.utils.ComponentUtils.modifyComponentRealTimeData;
 
 public class SocketProcessThread extends Thread{
 
@@ -50,10 +44,10 @@ public class SocketProcessThread extends Thread{
             Machine machine = MachineUtils.machineUtils.findByMachineIdentityCode(identityCode);
             if(machine != null){
                 machineIdentifier = machine.getIdentifier();
-                System.out.println("A machine connect." +
+                System.out.println("A machine identity correct;" +
                         "ID: " + machine.getId() +
-                        " Name: " + machine.getName() +
-                        " IdentityCode: " + machine.getIdentityCode());
+                        "; Name: " + machine.getName() +
+                        "; IdentityCode: " + machine.getIdentityCode());
                 pw.println("Correct identity");
                 pw.flush();
 
@@ -63,23 +57,27 @@ public class SocketProcessThread extends Thread{
                     pw.flush();
 
                     String [] arr = str.split("\\s+");
-                    System.out.println(str);
+                    System.out.println("One log from PLC is: " + str);
+                    //such as : M1 K 30 Hz
+                    //          F1 N 120 m3/h
                     ComponentLog componentLog = new ComponentLog();
                     componentLog.setMachineIdentifier(machineIdentifier);
                     int index = 0;
                     for(String ss : arr){
-                        System.out.println(ss);
+                        //System.out.println(ss);
                         index++;
                         switch (index){
 
                             case 1:
                                 componentLog.setComponentIdentifier(ss);
                                 break;
-
                             case 2:
-                                componentLog.setData(ss);
+                                componentLog.setStatus(ss);
                                 break;
                             case 3:
+                                componentLog.setData(ss);
+                                break;
+                            case 4:
                                 componentLog.setUnit(ss);
                                 break;
                             default:
@@ -90,6 +88,11 @@ public class SocketProcessThread extends Thread{
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     componentLog.setTime(dateFormat.format(new Date()));
                     addComponentLog(componentLog);
+                    if(modifyComponentRealTimeData(componentLog)){
+                        System.out.println(str + " add success!");
+                    }else{
+                        System.out.println("Not have this component!");
+                    }
 
                 }
 

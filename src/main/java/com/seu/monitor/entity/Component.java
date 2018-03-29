@@ -3,22 +3,27 @@ package com.seu.monitor.entity;
 import com.seu.monitor.entity.composite.ComponentCompositeKey;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@IdClass(ComponentCompositeKey.class)
+//@IdClass(ComponentCompositeKey.class)
 @Table(name = "component")
-public class Component {//部件，包括：传感器、阀门、电机、累计量
+public class Component implements Serializable {//部件，包括：传感器、阀门、电机、累计量
 
     @GeneratedValue
     private Integer id;
-    @Id private String machineIdentifier;//设备标志符和组件标志符一起为联合主键
-    @Id private String identifier;////允许多个组件拥有相同的标志符
+   // @Id private String machineIdentifier;//设备标志符和组件标志符一起为联合主键
+   // @Id private String identifier;////允许多个组件拥有相同的标志符
+    @EmbeddedId
+    ComponentCompositeKey pk;
     private String kind;
     private String name;
     private String description;
     private String status;
     private String realTimeData;
     private String unit;//num:9
+
+    public Component(){}
 
     public Integer getId() {
         return id;
@@ -28,17 +33,12 @@ public class Component {//部件，包括：传感器、阀门、电机、累计
         return description;
     }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
+
 
     public String getName() {
         return name;
     }
 
-    public String getIdentifier() {
-        return identifier;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -52,9 +52,7 @@ public class Component {//部件，包括：传感器、阀门、电机、累计
         return kind;
     }
 
-    public String getMachineIdentifier() {
-        return machineIdentifier;
-    }
+
 
     public void setStatus(String status) {
         this.status = status;
@@ -68,8 +66,12 @@ public class Component {//部件，包括：传感器、阀门、电机、累计
         this.kind = kind;
     }
 
-    public void setMachineIdentifier(String machineIdentifier) {
-        this.machineIdentifier = machineIdentifier;
+    public ComponentCompositeKey getPk() {
+        return pk;
+    }
+
+    public void setPk(ComponentCompositeKey pk) {
+        this.pk = pk;
     }
 
     public String getStatus() {

@@ -14,8 +14,17 @@ public class ComponentLog {
     private String machineIdentifier;
     private String componentIdentifier;
     private String time;
+    private String status;
     private String data;
     private String unit;//num:6
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public void setUnit(String unit) {
         this.unit = unit;

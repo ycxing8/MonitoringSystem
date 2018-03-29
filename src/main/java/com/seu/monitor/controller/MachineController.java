@@ -2,7 +2,7 @@ package com.seu.monitor.controller;
 
 import com.seu.monitor.config.UserConfig;
 import com.seu.monitor.entity.Machine;
-import com.seu.monitor.reposirity.MachineRepository;
+import com.seu.monitor.repository.MachineRepository;
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

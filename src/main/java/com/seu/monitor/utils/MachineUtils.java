@@ -1,7 +1,7 @@
-package com.seu.monitor.socket.utils;
+package com.seu.monitor.utils;
 
 import com.seu.monitor.entity.Machine;
-import com.seu.monitor.reposirity.MachineRepository;
+import com.seu.monitor.repository.MachineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

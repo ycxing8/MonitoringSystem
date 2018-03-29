@@ -1,4 +1,4 @@
-package com.seu.monitor.reposirity;
+package com.seu.monitor.repository;
 
 import com.seu.monitor.entity.Machine;
 import org.springframework.data.jpa.repository.JpaRepository;

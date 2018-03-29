@@ -1,7 +1,7 @@
 package com.seu.monitor.controller;
 
 import com.seu.monitor.entity.ComponentLog;
-import com.seu.monitor.reposirity.ComponentLogRepository;
+import com.seu.monitor.repository.ComponentLogRepository;
 import com.seu.monitor.config.UserConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class ComponentLogController {
         if(!session.getAttribute(UserConfig.USER_POWER).equals(UserConfig.ADMIN)){
             return null;
         }else {
-            return componentLogRepository.findByComponentIdentifierAndAndMachineIdentifier(componentIdentifier,machineIdentifier);
+            return componentLogRepository.findByMachineIdentifierAndComponentIdentifier(machineIdentifier,componentIdentifier);
         }
     }
 

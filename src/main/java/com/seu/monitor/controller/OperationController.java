@@ -3,7 +3,7 @@ package com.seu.monitor.controller;
 import com.seu.monitor.config.UserConfig;
 import com.seu.monitor.entity.Operation;
 import com.seu.monitor.entity.User;
-import com.seu.monitor.reposirity.OperationRepository;
+import com.seu.monitor.repository.OperationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
